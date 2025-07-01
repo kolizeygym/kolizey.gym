@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фитнес-зал Колизей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { scroll-behavior: smooth; height: 100%; overflow-x: hidden; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      z-index: 9999;
+      animation: fadeOutIntro 3.5s ease forwards;
+    }
+    .intro span {
+      display: block;
+      font-size: 2.5rem;
+      color: #fff;
+      animation: zoomText 2s ease forwards;
+      text-align: center;
+      margin: 5px 0;
+    }
+    @keyframes zoomText {
+      0% { transform: scale(0.6); opacity: 0; }
+      40% { transform: scale(1); opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeOutIntro {
+      0%, 85% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      z-index: 999;
+      display: none;
+    }
+    nav a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 100px 20px 80px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    section:nth-of-type(1) { animation-delay: 0.5s; }
+    section:nth-of-type(2) { animation-delay: 1s; }
+    section:nth-of-type(3) { animation-delay: 1.5s; }
+    section:nth-of-type(4) { animation-delay: 2s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+    .price-list div {
+      background: #ffd700;
+      color: #000;
+      margin: 10px auto;
+      padding: 15px;
+      max-width: 600px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(255, 221, 0, 0.5);
+    }
+    .trainers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .trainer {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+      text-align: left;
+      line-height: 1.6;
+      margin: 0 auto;
+    }
+    .trainer::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 6px;
+      background: #ffcc00;
+      border-radius: 4px 0 0 4px;
+    }
+    .trainer strong {
+      font-size: 1.2rem;
+      color: #ffcc00;
+    }
+    .trainer p {
+      margin: 10px 0;
+      white-space: pre-line;
+    }
+    .trainer a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn {
+      background: #ffcc00;
+      color: #000;
+      padding: 15px 30px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 40px auto 0;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #e6b800;
+    }
+    .info p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        document.querySelector('.intro').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.querySelector('nav').style.display = 'flex';
+      }, 3500);
+    });
+  </script>
+</head>
+<body>
+  <div class="intro">
+    <span>ТВОЙ ПУТЬ</span>
+    <span>НАЧИНАЕТСЯ</span>
+    <span>ЗДЕСЬ</span>
+  </div>
+  <section id="price">
+  <h2>ПРАЙС-ЛИСТ</h2>
+  <div class="price-list">
+    <div>Дневной абонемент (09:00–17:00 / 12 посещений) — <strong>10 000 ₸</strong></div>
+    <div>Вечерний (17:00–22:00 / 12 посещений) — <strong>12 000 ₸</strong></div>
+    <div>Безлимит (09:00–22:00 / 12 посещений) — <strong>16 000 ₸</strong></div>
+    <div>Студенческий (09:00–17:00 / 12 посещений) — <strong>7 000 ₸</strong></div>
+    <div>Разовое посещение (09:00–22:00) — <strong>2 000 ₸</strong></div>
+    <div>Персональный тренер — <strong>20 000 ₸</strong></div>
+  </div>
+</section>
+
+<section id="trainers">
+  <h2>ТРЕНЕРСКИЙ СОСТАВ</h2>
+  <div class="trainers">
+    <div class="trainer">
+      <strong>Стас</strong>
+      <p>Стаж более 10 лет
+Женский и мужской тренер
+🥈 Серебряный призёр IFBB на Чемпионате Казахстана
+🥈🥉 Действующий спортсмен Men’s Physique</p>
+      <a href="https://www.instagram.com/tkdlov3_ifbb" target="_blank">@tkdlov3_ifbb</a>
+    </div>
+    <div class="trainer">
+      <strong>Вероника</strong>
+      <p>Стаж 6 лет
+Выступающий атлет IFBB
+Личный результат — минус 20кг
+Женский тренер, полное сопровождение 💯</p>
+      <a href="https://www.instagram.com/vera31fit" target="_blank">@vera31fit</a>
+    </div>
+    <div class="trainer">
+      <strong>Ислам</strong>
+      <p>5-ый чемпион Казахстана по пауэрлифтингу
+Действующий спортсмен по греко-римской борьбе
+Мужской и женский тренер
+Стаж более 4-х лет</p>
+      <a href="https://www.instagram.com/ilyassov.islam" target="_blank">@ilyassov.islam</a>
+    </div>
+    <div class="trainer">
+      <strong>Татьяна</strong>
+      <p>Стаж более 8 лет
+Женский тренер
+Полное сопровождение, питание, результат на 💯</p>
+      <a href="https://www.instagram.com/ktl555" target="_blank">@ktl555</a>
+    </div>
+    <div class="trainer">
+      <strong>Берик</strong>
+      <p>Действующий спортсмен
+Стаж более 7 лет
+Призёр ММА
+Женский тренинг, масса набор и похудение</p>
+      <a href="https://www.instagram.com/berik_fit.motivator" target="_blank">@berik_fit.motivator</a>
+    </div>
+    <div class="trainer">
+      <strong>Шаке</strong>
+      <p>КМС по кикбоксингу
+4 года опыта в тренерстве
+Сертифицирован (Ученый фитнес, Москва)
+Амбассадор тестостерона
+Реальные результаты у десятков клиентов</p>
+      <a href="https://www.instagram.com/shake_trener" target="_blank">@shake_trener</a>
+    </div>
+    <div class="trainer">
+      <strong>Эрик</strong>
+      <p>Стаж 5 лет
+Действующий спортсмен
+Призёр ММА и лёгкой атлетики
+Сопровождение, питание, результат обеспечен</p>
+      <a href="https://www.instagram.com/coach_eric_kzo" target="_blank">@coach_eric_kzo</a>
+    </div>
+    <div class="trainer">
+      <strong>Диана</strong>
+      <p>Стаж более 9 лет
+🥈 Серебряная призёрка Азии (IFBB)
+🥈🥇 Фитнес бикини, чемпионат Казахстана
+-800 ккал за тренировку
+Прокачаю не только тело, но и уверенность</p>
+      <a href="https://www.instagram.com/diana_zumba_fit" target="_blank">@diana_zumba_fit</a>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <h2>ГОТОВ НАЧАТЬ?</h2>
+  <a href="http://wa.me/77074676555" class="btn" target="_blank">НАЧАТЬ ТРЕНИРОВКИ</a>
+</section>
+
+<section id="about">
+  <h2>О ЗАЛЕ</h2>
+  <div class="info">
+    <p>— 12 лет в сфере фитнеса</p>
+    <p>— 2 локации в Кызылорде</p>
+    <p>— Опытные тренеры со стажем</p>
+    <p>📌 ул. Желтоксан 42 (БЦ Бастау)</p>
+    <p>📌 ул. Бегим Ана 30</p>
+  </div>
+</section>
+</body>
+</html>
